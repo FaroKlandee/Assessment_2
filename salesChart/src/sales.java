@@ -10,11 +10,13 @@ public class sales extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        //Create new scene with specified dimensions
         Scene scene = new Scene(new Group());
         stage.setTitle("Sales Summary - XYZ Supermarket Chain");
         stage.setWidth(500);
         stage.setHeight(500);
 
+        //Create a piechart and add data for each slice
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
                 new PieChart.Data("ACT", 10),
@@ -28,6 +30,7 @@ public class sales extends Application {
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("XYZ Sales");
 
+        //Display the window piechart
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);
         stage.show();
