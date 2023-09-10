@@ -36,6 +36,9 @@ public class pointApp extends Application {
         }
     }
 
+    /**
+     * Set variable names
+     */
     private List<Point> points = new ArrayList<>();
     private Canvas canvas;
     private TextField coordinateTextField;
@@ -57,18 +60,24 @@ public class pointApp extends Application {
         canvas = new Canvas(400, 300);
         root.getChildren().add(canvas);
 
+        // Create text field with custom font size & style
         coordinateTextField = new TextField();
         coordinateTextField.setFont(new Font("Arial", 12));
         coordinateTextField.setEditable(false);
         coordinateTextField.setPrefHeight(30);
 
-        // Set text field position
+        // Set text field position to be bottom of stage
         coordinateTextField.setTranslateX(0);
         coordinateTextField.setTranslateY(150);
 
         root.getChildren().add(coordinateTextField);
 
-        // Create a context menu for point deletion
+        /**
+         * Creates new contextMenu and deleteMenuItem with option shown as Delete
+         * Context menu displayed when user right clicks
+         * Option to delete is displayed
+         * redraw canvas when delete function is requested
+         */
         ContextMenu contextMenu = new ContextMenu();
         MenuItem deleteMenuItem = new MenuItem("Delete");
         canvas.setOnMousePressed(event -> {
@@ -78,10 +87,6 @@ public class pointApp extends Application {
                 selectedPoint = getPointAt(mouseX, mouseY);
                 if (selectedPoint != null) {
                     canvas.setOnMouseDragged(dragEvent -> {
-                        double newX = dragEvent.getX();
-                        double newY = dragEvent.getY();
-                        selectedPoint.x = newX;
-                        selectedPoint.y = newY;
                         redrawCanvas();
                     });
 
@@ -96,6 +101,8 @@ public class pointApp extends Application {
 
         contextMenu.getItems().add(deleteMenuItem);
 
+        // Function is remove the point when delete option is selected from a point's
+        // context menu
         canvas.setOnContextMenuRequested(event -> {
             double mouseX = event.getX();
             double mouseY = event.getY();
@@ -110,6 +117,7 @@ public class pointApp extends Application {
             }
         });
 
+        // Function to display the coordinates of the point the cursor is hovering over
         canvas.setOnMouseMoved(event -> {
             double mouseX = event.getX();
             double mouseY = event.getY();
@@ -121,6 +129,7 @@ public class pointApp extends Application {
             }
         });
 
+        // Function to click and drag an existing point to a new point
         canvas.setOnMousePressed(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
                 double mouseX = event.getX();
@@ -155,6 +164,9 @@ public class pointApp extends Application {
         primaryStage.show();
     }
 
+    // Method to read points from the points.txt file
+    // String splits special characters and passes the double into the class
+    // variables
     private List<Point> readPointsFromFile(String fileName) {
         List<Point> points = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(
@@ -175,6 +187,7 @@ public class pointApp extends Application {
         return points;
     }
 
+    // redraws the canvas
     private void redrawCanvas() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -187,6 +200,7 @@ public class pointApp extends Application {
         }
     }
 
+    // Returns point at the current location
     private Point getPointAt(double x, double y) {
         for (Point point : points) {
             double pointX = point.x;
@@ -198,6 +212,7 @@ public class pointApp extends Application {
         return null;
     }
 
+    // method to write new coordinates into existing points file
     private void savePointsToFile(String fileName) {
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter("C:\\Users\\mrbee\\OneDrive\\Desktop\\Java 2\\Assessment_2\\pointApp\\points.txt"))) {
