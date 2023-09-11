@@ -1,22 +1,38 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "pointApp",
-            "request": "launch",
-            "vmArgs": "--module-path C:/Users/mrbee/AppData/Local/Programs/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "pointApp",
-            "projectName": "Assessment_2_b09b0683"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "sales",
+      "request": "launch",
+      "vmArgs": "--module-path C:/Users/mrbee/AppData/Local/Programs/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "sales",
+      "projectName": "Assessment_2_b09b0683"
+    },
+    {
+      "type": "java",
+      "name": "fanSimulator",
+      "request": "launch",
+      "vmArgs": "--module-path C:/Users/mrbee/AppData/Local/Programs/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "fanSimulator",
+      "projectName": "Assessment_2_b09b0683"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "pointApp",
+      "request": "launch",
+      "vmArgs": "--module-path C:/Users/mrbee/AppData/Local/Programs/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "pointApp",
+      "projectName": "Assessment_2_b09b0683"
+    }
+  ]
 }
