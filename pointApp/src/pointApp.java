@@ -44,10 +44,6 @@ public class pointApp extends Application {
     private TextField coordinateTextField;
     private Point selectedPoint;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Show Points");
@@ -162,6 +158,10 @@ public class pointApp extends Application {
         primaryStage.setOnCloseRequest(event -> savePointsToFile("points.txt"));
 
         primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 
     // Method to read points from the points.txt file
