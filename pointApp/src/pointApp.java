@@ -170,7 +170,7 @@ public class pointApp extends Application {
     private List<Point> readPointsFromFile(String fileName) {
         List<Point> points = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(
-                new FileReader("C:\\Users\\mrbee\\OneDrive\\Desktop\\Java 2\\Assessment_2\\pointApp\\points.txt"))) {
+                new FileReader("pointApp/points.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Assuming lines are in the format: "x=5; y=10"
